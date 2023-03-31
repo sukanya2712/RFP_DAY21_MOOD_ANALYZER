@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
     public class MoodAnalyzerTest {
+        //uc1
         @Test
         public void analyzeSadMessageTest(){
             MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
