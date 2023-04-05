@@ -1,28 +1,29 @@
 import org.junit.Assert;
 import org.junit.Test;
-    public class MoodAnalyzerTest {
-        //uc1
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+public class MoodAnalyzerTest {
+        //uc2
+        static MoodAnalyzer mood;
+
         @Test
-        public void analyzeSadMessageTest(){
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-            Assert.assertEquals("SAD",moodAnalyzer.analyzeMood("I am in Sad Mood"));
-        }
-        @Test
-        public void analyzeHappyMessageTest(){
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-            Assert.assertEquals("HAPPY",moodAnalyzer.analyzeMood("I am in Any Mood"));
-        }
-        @Test
-        public void analyzeHappyMessageTestWithConstructor(){
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in Any Mood");
-            Assert.assertEquals("HAPPY",moodAnalyzer.analyzeMoodWithConstructor());
-        }
-        @Test
-        public void analyzeSadMessageTestWithConstructor(){
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in Sad Mood");
-            Assert.assertEquals("SAD",moodAnalyzer.analyzeMoodWithConstructor());
+        public void test1AnalyseMoodAsSad() {
+            mood = new MoodAnalyzer("I am in Sad Mood");
+            assertEquals("SAD", mood.analyseMood());
+            System.out.println("Test 1.1: Test Case For Sad Mood Passed");
         }
 
+        @Test
+        public void test2AnalyseMoodAsHappy(){
+            mood = new MoodAnalyzer("I am in Happy Mood");
+            assertEquals("HAPPY",mood.analyseMood());
+            System.out.println("Test 1.2: Test Case For Happy Mood Passed");
+        }
+
+        @Test
+        public void testNullException(){
+            mood = new MoodAnalyzer();
+            assertEquals("HAPPY",mood.analyseMood());
+            System.out.println("Test 2.1: Test Case For NULL Pointer Exception Handled");
+        }
     }
-
-
